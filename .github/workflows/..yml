@@ -12,7 +12,7 @@ jobs:
       run: docker pull qsdcbv/insta2yt:v7
     - name: Run Docker file
       run: |
-           docker run qsdcbv/insta2yt:v7 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && which firefox && ./geckodriver --version && wget https://raw.githubusercontent.com/Rdxcj/Test3/main/44.py && sudo apt install python3-venv && python3 -m venv fuck && source fuck/bin/activate && pip3 install seleniumbase"
+           docker run qsdcbv/insta2yt:v7 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && which firefox && ./geckodriver --version && wget https://raw.githubusercontent.com/Rdxcj/Test3/main/44.py && sudo apt install python3-venv -y && python3 -m venv fuck && source fuck/bin/activate && pip3 install seleniumbase"
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
