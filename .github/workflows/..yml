@@ -12,7 +12,7 @@ jobs:
       run: docker pull qsdcbv/insta2yt:v6
     - name: Run Docker file
       run: |
-           docker run qsdcbv/insta2yt:v6 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && which firefox && python3 4.py"
+           docker run qsdcbv/insta2yt:v6 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && which firefox && ./geckodriver --version"
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
