@@ -13,11 +13,9 @@ jobs:
     - name: Run Docker file
       run: |
            docker run qsdcbv/insta2yt:v5 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && which firefox && python 4.py"
-    - name: Upload a Build Artifact
-    - uses: actions/upload-artifact@v4.6.2
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
       with:
-    # Artifact name
-       name: "fuck"
-    # A file, directory or wildcard pattern that describes hat to upload
-       path: "/shit"
-    # The desired behavior if no files are found using the provided path.
+          name: my-artifact # NOTE: same artifact name
+          path: /shit
+          compression-level: 9
