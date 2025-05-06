@@ -1,0 +1,28 @@
+name: Insta2YT Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  In2Yt:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+    - name: Pull Docker image
+      run: docker pull qsdcbv/insta2yt:a1
+    - name: Run Docker file and Copy Artifact
+      run: |
+        docker run --rm qsdcbv/insta2yt:a1 sh -c "
+          set -e
+          wget https://raw.githubusercontent.com/Rdxcj/Test3/main/0.py -O /tmp/0.py
+          cp geckodriver /usr/local/bin
+          python3 /tmp/0.py
+          mkdir -p /tmp/artifact_output # Create the directory
+          cp /usr/local/bin/k.png /tmp/artifact_output/k.png # Copy the file
+        "
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: "y-artifact"
+        path: "/tmp/artifact_output/k.png" # Upload from /tmp/artifact_output
+        compression-level: 9
