@@ -14,8 +14,8 @@ jobs:
       run: |
            docker run qsdcbv/insta2yt:a1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/0.py && cp geckodriver /usr/local/bin && python3 0.py"
     - name: Upload Artifact
-    - uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v4
       with:
-          name: my-artifact # NOTE: same artifact name
-          path: fuck.png
+          name: "y-artifact" # NOTE: same artifact name
+          path: "/usr/local/bin/fuck.png"
           compression-level: 9
