@@ -9,10 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Pull Docker image
-      run: docker pull qsdcbv/insta2yt:v8
+      run: docker pull qsdcbv/insta2yt:v9
     - name: Run Docker file
       run: |
-           docker run qsdcbv/insta2yt:v8 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && which firefox && ./geckodriver --version && wget https://raw.githubusercontent.com/Rdxcj/Test3/main/44.py && firefox --version"
+           docker run qsdcbv/insta2yt:v9 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && which firefox && ./geckodriver --version && wget https://raw.githubusercontent.com/Rdxcj/Test3/main/44.py && firefox --version"
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
