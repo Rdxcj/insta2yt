@@ -1,0 +1,26 @@
+name: Run 57.py in Dock
+
+on:
+  workflow_dispatch:
+
+jobs:
+  In2Yt:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Pull Docker image
+      run: docker pull qsdcbv/insta2yt:a1  # Fix typo: "qsdcbv" not "qsdcby"
+
+    - name: Run Docker container and copy screenshot
+      run: |
+           docker run --name mycontainer -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && python3 /app/57.py"
+           docker cp mycontainer:/usr/local/bin/k.png ./k.png
+           docker rm mycontainer
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+          name: "y-artifact"
+          path: "k.png"
+          compression-level: 9
