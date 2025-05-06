@@ -17,5 +17,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
           name: my-artifact # NOTE: same artifact name
-          path: /shit
+          path: fuck.png
           compression-level: 9
