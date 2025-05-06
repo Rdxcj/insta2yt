@@ -1,0 +1,32 @@
+name: Run Python Script in Docker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  In2Yt:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4  # This fetches your repo files (including 57.py)
+    
+    - name: Pull Docker image
+      run: docker pull qsdcbv/insta2yt:a1
+    
+    - name: Run Docker container and copy screenshot
+      run: |
+           # Mount repo files into the container at /app, then run 57.py
+           docker run \
+             --name mycontainer \
+             -v "${{ github.workspace }}":/app \  # Mount repo directory to /app in container
+             qsdcbv/insta2yt:a1 \
+             sh -c "cp geckodriver /usr/local/bin && python3 /app/57.py"  # Run script from mounted directory
+
+           # Copy screenshot from container to host
+           docker cp mycontainer:/usr/local/bin/k.png ./k.png
+           docker rm mycontainer  # Clean up
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+          name: "y-artifact"
+          path: "k.png"
