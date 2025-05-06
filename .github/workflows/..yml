@@ -12,7 +12,7 @@ jobs:
       run: docker pull qsdcbv/insta2yt:a1
     - name: Run Docker file
       run: |
-           docker run qsdcbv/insta2yt:a1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && wget https://raw.githubusercontent.com/Rdxcj/Test3/main/4.py && firefox --version && which firefox && cp geckodriver /usr/local/bin && cp geckodriver /usr/bin && which geckodriver && geckodriver --version && python3 4.py"
+           docker run qsdcbv/insta2yt:a1 sh -c "wget https://raw.githubusercontent.com/Rdxcj/Test3/main/57.py && ls -tgh && pwd && wget https://raw.githubusercontent.com/Rdxcj/Test3/main/0.py && firefox --version && which firefox && cp geckodriver /usr/local/bin && cp geckodriver /usr/bin && which geckodriver && geckodriver --version && python3 0.py"
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
