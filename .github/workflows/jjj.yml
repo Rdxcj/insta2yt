@@ -14,7 +14,7 @@ jobs:
 
     - name: Run Docker container and copy screenshot
       run: |
-           docker run --name mycontainer -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && cat /app/home.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && mkdir /app/fuck && python3 /app/1.py; ls -tgh; pwd"
+           docker run --name mycontainer -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && cat /app/home.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && mkdir /app/fuck && python3 /app/1.py; cd app; ls -tgh; pwd"
            docker rm mycontainer
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
