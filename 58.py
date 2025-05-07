@@ -303,35 +303,35 @@ def click_next_buttons(driver, num_clicks):
     next_button_locator = (By.XPATH, "//ytcp-button[@id='next-button']/ytcp-button-shape")
     for _ in range(num_clicks):
         wait_and_click(driver, next_button_locator)
-        time.sleep(8)
+        time.sleep(15)
 
 def upload_video(driver, video_path, title, description):
     try:
         driver.get("https://www.youtube.com")
-        time.sleep(10)
+        time.sleep(20)
         wait_and_click(driver, (By.XPATH, "//*[@id=\"buttons\"]/ytd-button-renderer/yt-button-shape/button/yt-touch-feedback-shape/div/div[2]"))
-        time.sleep(3)
+        time.sleep(8)
         wait_and_click(driver, (By.CSS_SELECTOR, "ytd-compact-link-renderer:nth-of-type(1) div:nth-of-type(2) > yt-formatted-string:nth-of-type(1)"))
         set_video(driver, (By.XPATH, "//*[@id=\"content\"]/input"), video_path)
-        time.sleep(20)
+        time.sleep(40)
         wait_and_send_keys(driver, (By.CSS_SELECTOR, "div.title ytcp-social-suggestion-input > div"), title)
-        time.sleep(5)
+        time.sleep(10)
         wait_and_send_keys(driver, (By.CSS_SELECTOR, "div.description ytcp-social-suggestion-input > div"), description)
-        time.sleep(5)
+        time.sleep(10)
         wait_and_click(driver, (By.CSS_SELECTOR, "ytkc-made-for-kids-select tp-yt-paper-radio-button:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)"))
-        time.sleep(8)
-        click_next_buttons(driver, 3)
+        time.sleep(15)
+        click_next_buttons(driver, 10)
         wait_and_click(driver, (By.CSS_SELECTOR, "tp-yt-paper-radio-button:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1)"))
-        time.sleep(8)
+        time.sleep(15)
         wait_and_click(driver, (By.XPATH, "//ytcp-button[@id='done-button']/ytcp-button-shape"))
-        time.sleep(8)
+        time.sleep(15)
     except TimeoutException as e:
         print(f"ERROR: {e}")
         driver.save_screenshot("upload_error.png")
         raise
     except Exception as e:
         print(f"ERROR: An unexpected error occurred: {e}")
-        driver.save_screenshot("upload_error.png")
+        driver.save_screenshot("/usr/local/bin/upload_error.png")
         raise
         
 # --- 4. Main Execution Logic ---
