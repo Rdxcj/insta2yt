@@ -360,7 +360,7 @@ def main():
                 stream_urls = extractor.extract_stream_urls_from_mpd(clip_info.mpd_manifest)
 
                 if stream_urls.video_url and stream_urls.audio_url:
-                    output_file = f"{clip_info.clip_id}.mp4"
+                    output_file = f"/app/{clip_info.clip_id}.mp4"
                     print(f"INFO: Downloading video and audio to '{output_file}'...")
                     ffmpeg_cmd = [
                         "ffmpeg",
@@ -386,7 +386,7 @@ def main():
                 print(f"🕒 Timestamp: {clip_info.timestamp}")
                 driver = setup_driver()
                 try:
-                    video_path = f"{clip_info.clip_id}.mp4"
+                    video_path = f"/app/{clip_info.clip_id}.mp4"
                     upload_video(driver, video_path, clip_info.title, clip_info.description)
                     print("Video uploaded successfully")
                 finally:
