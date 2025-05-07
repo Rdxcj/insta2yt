@@ -337,7 +337,7 @@ def main():
                 stream_urls = extractor.extract_stream_urls_from_mpd(clip_info.mpd_manifest)
                 if stream_urls.video_url and stream_urls.audio_url:
                     output_file = f"/app/clip_{clip_info.clip_id}.mp4"
-                    shitname.append(output_file)
+                    video_file_path.append(output_file)
                     print(f"INFO: Downloading video and audio to '{output_file}'...")
                     ffmpeg_cmd = [
                         "ffmpeg",
