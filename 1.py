@@ -406,7 +406,7 @@ def main():
                 print(f"🕒 Timestamp: {clip_info.timestamp}")
                 print("💩 Uploading")
                 print(shitname[0])
-                #upload(clip_info.title, clip_info.description, video):
+                upload(clip_info.title, clip_info.description, shitname[0])
             else:
                 print("❌ Clip node found, but it's missing the MPD manifest.")
         else:
