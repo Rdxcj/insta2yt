@@ -265,8 +265,8 @@ def setup_driver():
     options.add_argument("--log-level=3")
     options.add_argument("--headless")
     options.add_argument("-profile")
-    options.add_argument("/home/d3th/selenium/za73pwwo.default")
-    service = Service("/home/d3th/selenium/geckodriver")
+    options.add_argument("/app/za73pwwo.default")
+    service = Service("/usr/local/bin/geckodriver")
     driver = webdriver.Firefox(service=service, options=options)
     driver.implicitly_wait(5)
     return driver
