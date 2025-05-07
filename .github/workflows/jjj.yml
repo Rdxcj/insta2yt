@@ -14,10 +14,11 @@ jobs:
 
     - name: Run Docker container and copy screenshot
       run: |
-           docker run --name mycontainer -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && cat /app/home.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && mkdir /app/fuck && python3 /app/0.py && cd app; cd fuck && ls -tgh && pwd"
+           docker run --name mycontainer -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && cat /app/home.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && mkdir /app/fuck && python3 /app/0.py"
+           docker cp mycontainer:/app/fuck ./fuck
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
           name: "y-artifact"
-          path: "/app/fuck"
+          path: "fuck"
           compression-level: 9
