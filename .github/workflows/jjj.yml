@@ -14,12 +14,12 @@ jobs:
 
     - name: Run Docker container and copy screenshot
       run: |
-           docker run --name mycontainer -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && cat /app/home.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && mkdir /app/yt_screenshot && python3 /app/1.py; tar -czvf yt.tar.gz app/yt_screenshot"
-           docker cp mycontainer:/yt.tar.gz ./yt.tar.gz
-           docker rm mycontainer
+           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && cat /app/home.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && mkdir /app/yt_screenshot && python3 /app/in2yt.py; tar -czvf yt.tar.gz app/yt_screenshot"
+           docker cp in2yt:/yt.tar.gz ./yt.tar.gz
+           docker rm in2yt
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-          name: "y-artifact"
+          name: "yt"
           path: "yt.tar.gz"
           compression-level: 9
