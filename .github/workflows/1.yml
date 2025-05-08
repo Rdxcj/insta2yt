@@ -14,7 +14,7 @@ jobs:
 
     - name: Run Docker container and copy screenshot
       run: |
-           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && sudo apt install python3.10-venv -y && python3 -m venv 1; cat 1/bin/activate"
+           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && sudo apt install python3.10-venv -y && python3 -m venv 1; . .1/bin/activate"
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
