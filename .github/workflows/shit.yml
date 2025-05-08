@@ -1,0 +1,23 @@
+name: shit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  shit:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Pull Docker image
+      run: docker pull qsdcbv/insta2yt:s1
+
+    - name: Run Docker container and copy screenshot
+      run: |
+           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:s1 sh -c "cp geckodriver /usr/local/bin && cat /app/Chrome.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && ls -tgh; pwd"
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+          name: "yt"
+          path: "yt.tar.gz"
+          compression-level: 9
