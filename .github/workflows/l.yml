@@ -14,7 +14,7 @@ jobs:
 
     - name: Run Docker container and copy screenshot
       run: |
-           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:s1 sh -c "cp geckodriver /usr/local/bin && sudo apt-get update -y; sudo apt-get install -y xvfb x11-utils xorg xserver-xorg-core; sudo apt-get install -y x11-apps xfonts-base xfonts-75dpi xfonts-100dpi xfonts-cyrillic; yes | pip3 install pyautogui && ls -tgh; pwd; . 1/bin/activate && which python3; pwd; cat /app/Chrome.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && mkdir /app/yt_screenshot; python3 /app/Uc.py; tar -czvf yt.tar.gz app/yt_screenshot"
+           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:s1 sh -c "cp geckodriver /usr/local/bin && sudo apt-get install -y xvfb x11-utils xorg xserver-xorg-core; sudo apt-get install -y x11-apps xfonts-base xfonts-75dpi xfonts-100dpi xfonts-cyrillic; yes | pip3 install pyautogui && ls -tgh; pwd; . 1/bin/activate && which python3; pwd; cat /app/Chrome.tar.gz.parta* >/app/backup.tar.gz && tar -xvzf /app/backup.tar.gz -C /app > /dev/null 2>&1 && mkdir /app/yt_screenshot; python3 /app/Uc.py; tar -czvf yt.tar.gz app/yt_screenshot"
            docker cp in2yt:/yt.tar.gz ./yt.tar.gz
            docker rm in2yt
     - name: Upload Artifact
