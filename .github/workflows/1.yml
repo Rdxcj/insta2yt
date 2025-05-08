@@ -14,7 +14,7 @@ jobs:
 
     - name: Run Docker container and copy screenshot
       run: |
-           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && sudo apt install python3.10-venv -y && python3 -m venv 1; . 1/bin/activate && yes | pip3 install seleniumbase; pip3 list; sbase get chromedriver stable"
+           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && sudo apt install python3.10-venv -y && python3 -m venv 1; . 1/bin/activate && yes | pip3 install seleniumbase; pip3 list; sbase get chromedriver stable && cd; wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb; sudo apt install ./google-chrome-stable_current_amd64.deb; which google-chrome
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
