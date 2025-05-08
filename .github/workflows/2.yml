@@ -10,11 +10,11 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Pull Docker image
-      run: docker pull qsdcbv/insta2yt:a1
+      run: docker pull qsdcbv/insta2yt:s1
 
     - name: Run Docker container and copy screenshot
       run: |
-           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:a1 sh -c "cp geckodriver /usr/local/bin && ls -tgh; pwd; . 1/bin/activate && pip3 list"
+           docker run --name in2yt -v "${{ github.workspace }}":/app qsdcbv/insta2yt:s1 sh -c "cp geckodriver /usr/local/bin && ls -tgh; pwd; . 1/bin/activate && pip3 list"
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
