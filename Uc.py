@@ -3,8 +3,8 @@ import time
 from sbvirtualdisplay import Display
 from seleniumbase import Driver
 
-display = Display(visible=0, size=(1440, 1880))
-display.start()
+#display = Display(visible=0, size=(1440, 1880))
+#display.start()
 
 #with SB(user_data_dir="/app/chrome/google-chrome", headless2=True, uc=True, ad_block=True) as sb:
 #    url = "https://www.youtube.com"
