@@ -1,6 +1,6 @@
 from seleniumbase import SB
 import time
-with SB(user_data_dir="/app/chrome/google-chrome", headless2=True, uc=True, ad_block=True, incognito=True) as sb:
+with SB(user_data_dir="/app/chrome/google-chrome", uc=True, ad_block=True) as sb:
     url = "https://www.youtube.com"
 #    sb.activate_cdp_mode(url)
 #    sb.sleep(15.5)
