@@ -104,7 +104,7 @@ def upload(title, description, video):
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
     options.add_argument("-profile")
-    options.add_argument("/app/chrome/google-chrome")
+    options.add_argument("/app/chrome/google-chrome/Default")
     driver = webdriver.Chrome(service=webdriver.chrome.service.Service("/1/lib/python3.10/site-packages/seleniumbase/drivers/chromedriver"), options=options)
     driver.get("https://www.youtube.com")
     time.sleep(20)
