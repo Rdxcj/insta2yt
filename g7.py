@@ -100,7 +100,9 @@ data = {
 def upload(title, description, video):
 #    options = Options()
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
+    options.add_argument("--headless=new")  # Run in headless mode (no GUI)
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
     options.add_argument("--user-data-dir=/app/chrome/google-chrome")
     options.add_argument('--profile-directory=Default')
     driver = webdriver.Chrome(service=webdriver.chrome.service.Service("/1/lib/python3.10/site-packages/seleniumbase/drivers/chromedriver"), options=options)
